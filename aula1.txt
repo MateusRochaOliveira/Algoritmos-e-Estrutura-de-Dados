@@ -1,0 +1,156 @@
+🧩 Parte 1 – Explorando a Memória de um Vetor
+1.a) Anote os endereços de memória impressos pelo programa. Verifique qual valor cada um deles correspondem a
+notação decimal. Dica: utilize uma calculadora em seu computador ou celular em modo “Programador”.
+
+	Solução: Utilizei o site https://www.rapidtables.com/convert/number/hex-to-decimal.html?x=FFF000BCC (rapid tables) para fazer a
+	conversão do modelo hexadecimal para o sistema decimal.
+
+	Resposta:
+	&v:[0] = 0xfff000bc0, que corresponde ao número = 68702702528 na notação decimal 
+	&v:[1] = 0xfff000bc4, que corresponde ao número = 68702702532 na notação decimal  
+	&v:[2] = 0xfff000bc8, que corresponde ao número = 68702702536 na notação decimal
+	&v:[3] = 0xfff000bcc, que corresponde ao número = 68702702540 na notação decimal
+	&v:[4] = 0xfff000bd0, que corresponde ao número = 68702702544 na notação decimal 
+
+1.b) Os endereços de memória estão em ordem crescente?
+
+	Resposta:
+	Sim. Estão.
+
+1.c) Qual é a diferença dos endereços entre dois elementos consecutivos? Você pode utilizar a calculadora. Essa
+diferença indica a quantidade de bytes de cada elemento do tipo do vetor. 
+	
+	Resposta:
+	Os endereços tem '4' de diferença entre um e outro.
+
+	Solução:
+	68702702532
+       -68702702528 
+	-----------
+	00000000004
+
+1.d) O que foi impresso no mistério? O endereço impresso é o mesmo de qual elemento do vetor?
+
+	
+	Resposta:
+	A resposta dada em "mistério" foi a seguinte:
+	v:0xfff000bc0, que é igual ao elemento v[0] = 0xfff000bc0;
+	
+	Conclusão: O endereço é o mesmo do elemento 0 do vetor.
+
+
+1.e) Após o código do mistério, acrescente um trecho de código para imprimir os elementos vetor, do início ao fim,
+conforme o print da tela de saída a seguir:
+ 	
+	Resposta:
+	Novo código: 
+
+	#include <iostream>
+	using namespace std; 
+
+	int main() {
+  	int i, v[5] = {10,20,30,40,50};
+  	// Escrever o '&'antes do nome de uma variável significa saber seu endereço na memória 
+  	cout << "Endereços de memória de cada elemento do vetor:" <<endl;
+  	for(i = 0; i < 5;i++) {
+  	cout << "&v:["<< i <<"] = " << &v[i] << endl; 
+  	}
+  	cout << "\nMistério.. o que será impresso a seguir?" << endl;
+  	cout << "v:"<<v<<endl<<endl;
+  	cout << "Elementos do vetor:\n";
+  	for(i = 0; i < 5;i++) {
+  	cout << "v:["<< i <<"] = " << v[i] << endl; 
+  	}
+  
+  
+  return 0;
+}
+
+🧩 Parte 2 – Vetores como parâmetros em funções
+Vamos revisitar o Exercício 6 da Avaliação Diagnóstica:
+Qual o vetor resultante após a execução da função a seguir? Suponha que os elementos do vetor sejam, nesta ordem:
+1, 2, 3, 4, 5, 6, 7, 8, 9, 10. 𝑛 possui o valor 10.
+
+	Resposta:
+	O vetor resultante será int v[10] = 10,9,8,7,6,5,4,3,2,1.
+	Será, simplesmente, o vetor invertido.
+
+2.a) No Python tutor, escreva essa função num programa completo e crie uma função para imprimir todos os
+elementos do vetor, do primeiro ao último. Baseie-se na seguinte saída para escrever seu programa:
+
+	Resposta:
+	Código pronto:
+	#include <iostream>
+	using namespace std;
+	void f (int v[], int n)
+	{
+	  int aux;
+	  for (int i =0; i<n/2;i++)
+	  {
+	    aux = v[i];
+	    v[i] = v[n-1-i];
+	    v[n-1-i] = aux;
+	  }
+	}
+
+
+	void imprime(int v[],int n){
+	  	cout <<"Vetor: ";
+	  	for (int i = 0;i<n;i++)
+			cout<<v[i]<<" ";
+		cout<<endl;
+	}
+  
+	int main(){
+		int v[10]={1,2,3,4,5,6,7,8,9,10};
+		int n = 10;
+		cout<<"Antes de chamar a função: "<<endl;
+		imprime(v,n);
+		f(v,n);
+		cout<<"Depois de chamar a função: "<<endl;
+		imprime(v,n);
+		return 0;
+	}
+2.b) Execute o programa passo a passo. Verifique que a variável 𝑣 da função 𝑖𝑚𝑝𝑟𝑖𝑚𝑒() aponta para o vetor 𝑣
+declarado na função 𝑚𝑎𝑖𝑛(), conforme a imagem abaixo:
+Isso acontece porque quando chamamos a função 𝑖𝑚𝑝𝑟𝑖𝑚𝑒(), passando o nome do vetor, quer dizer que estamos
+passando o endereço dele:
+2.c) O que acontece a cada iteração do laço da função 𝑓()?
+	Resposta:
+	Inicialmente, na função f(), a variável "aux" começa com o valor = 1 e a variável "i" começa com valor = 0
+	A cada iteração dentro do laço da função f(), é somado 1 à vcariável "i" e 1 à variável "aux".
+
+2.d) Nomes de funções devem ser significativos, e 𝑓() não é. Que nome você daria a essa função?
+	Resposta: 
+	Acredito que "funcao_inverter_vetor" seria um bom nome.
+
+🧩 Parte 3 – Retornando ao Exercício 7 da Avaliação Diagnóstica
+Relembrando a questão 7 da Avaliação Diagnóstica:
+A seguinte função 𝑒𝑠𝑡𝑎ℎ𝑂𝑟𝑑𝑒𝑛𝑎𝑑𝑜() deverá retornar 𝑡𝑟𝑢𝑒 se o vetor está ordenado em ordem decrescente (do
+maior para o menor). Caso contrário, a função deverá retornar 𝑓𝑎𝑙𝑠𝑒:
+bool estahOrdenado ( int x [ ] , int TAM)
+{
+ // código faltante aqui . . .
+}
+Qual dos seguintes códigos completa a função estahOrdenado()? Marque a opção correta.
+
+Opção correta:
+bool estahOrdenado (int x[], int TAM)
+{
+bool b = false;
+for (int i=0; i<TAM-1;i++){
+	if(x[i] < x[i+1])
+	   b = true;
+}
+return b;
+
+Responda:
+No Python tutor, escreva essa função num programa completo, acrescentando código de forma que você consiga
+entender o que está acontecendo. Na função 𝑒𝑠𝑡𝑎ℎ𝑂𝑟𝑑𝑒𝑛𝑎𝑑𝑜(), escreva o código que escolheu para a questão e
+teste com os seguintes vetores:
+a) {50, 40, 30, 20, 10}. Qual foi o resultado?
+b) {10, 20, 30, 40, 50}. Qual foi o resultado?
+c) {10, 20, 30, 50, 40}. Qual foi o resultado?
+d) O que você aprendeu com esse exercício?
+
+
