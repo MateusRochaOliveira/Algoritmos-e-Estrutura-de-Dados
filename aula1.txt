@@ -149,8 +149,19 @@ No Python tutor, escreva essa função num programa completo, acrescentando cód
 entender o que está acontecendo. Na função 𝑒𝑠𝑡𝑎ℎ𝑂𝑟𝑑𝑒𝑛𝑎𝑑𝑜(), escreva o código que escolheu para a questão e
 teste com os seguintes vetores:
 a) {50, 40, 30, 20, 10}. Qual foi o resultado?
+Resposta:
+O resultado foi: 0, ou seja, FALSE.
 b) {10, 20, 30, 40, 50}. Qual foi o resultado?
+Resposta:
+O resultado foi: 1, ou seja, TRUE.
 c) {10, 20, 30, 50, 40}. Qual foi o resultado?
+Resposta:
+O resultado foi: 0, ou seja, FALSE.
 d) O que você aprendeu com esse exercício?
+Resposta:
+Aprendi que eu escolhi a alternativa incorreta, porque, caso fosse a alternativa correta, o correto seria retornar "true"/"1"
+para a alternativa a) "{50,40,30,20,10]" e retornar "false"/"0" para o restante das alternativas. Foi um bom exemplo prático para 
+testar o código.
+
 
 
