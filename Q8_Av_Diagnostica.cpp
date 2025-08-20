@@ -63,9 +63,8 @@ int resultado = buscar(v, N, x);
     } else {
         cout << "\nValor nao encontrado no vetor." << endl;
     }
-
+    return 0;
 }
 
-}
 
 
