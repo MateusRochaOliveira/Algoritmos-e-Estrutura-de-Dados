@@ -1,0 +1,30 @@
+Anotações sobre o exercício 8 da avaliação diagnóstica:
+
+Observação:
+Número inteiro é aquele que não possui partes fracionárias/decimais.
+Método para testar se o número é inteiro:
+Calcular o resto (%) dividindo o número por 1. 
+	Se(resto==0): Número inteiro
+	Se(resto!=0) ou Senão: Número não é inteiro
+Em código:
+	if (num%1 == 0){
+		cout << "Número inteiro\n";
+	}	
+	else{
+		cout << "Número não inteiro\n";
+	}
+
+Código inicial:
+
+int buscar(int v[], int n, int x){
+
+x=0;
+
+    if (v[i]%1==x){
+        cout << "Inteiro\n";
+        n+=;
+    }
+    else{
+        cout << "Não inteiro\n";
+    }
+}
