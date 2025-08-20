@@ -31,4 +31,4 @@ Este repositório contém exercícios, exemplos e anotações da disciplina de *
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repo.git
+   git clone https://github.com/MateusRochaOliveira/Algoritmos-e-Estrutura-de-Dados
