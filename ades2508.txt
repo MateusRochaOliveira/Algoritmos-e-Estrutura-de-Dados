@@ -1,0 +1,218 @@
+Parte 1: Entendendo como as funções funcionam na memória
+QUESTÃO 1 — Explorando a passagem de parâmetros por valor
+Instruções:
+1. Clique aqui para verificar um programa com a função 𝑖𝑚𝑝𝑟𝑖𝑚𝑒() no Python Tutor. Vai abrir uma página como
+a da Figura 1.
+2. Execute o programa passo a passo e responda às questões abaixo. Use os botões “Next” e “Prev” para
+avançar e voltar na execução.
+
+Agora, reflita e responda:
+a) As variáveis 𝑎 e 𝑏 da função 𝑚𝑎𝑖𝑛() realmente receberam os valores 3 e 4?
+Resposta:
+Sim, elas receberam os valores 3 e 4. Tanto as variáveis a e b da função main() quanto as variáveis a e b da função imprime. 	
+
+b) Compare os endereços de memória de 𝑎 e 𝑏 dentro da função 𝑚𝑎𝑖𝑛() com os endereços de 𝑎 e 𝑏 dentro 
+da função 𝑖𝑚𝑝𝑟𝑖𝑚𝑒().
+→ O que você observa? Eles são os mesmos? Por quê?
+Resposta:
+Não, os endereços de memória de a e b dentro da função main() e a e b dentro da função imprime são distintos. Em cada função
+os endereços de memória das variáveis assumem valores diferentes. Isso ocorre porquê as funções são independentes, cada função 
+tem seu escopo e seu espaço de memória local para as suas variáveis. Trata-se da passagem por valor.
+
+c) Com base nisso, explique com suas palavras:
+→ O que significa dizer que os valores foram copiados para a função 𝑖𝑚𝑝𝑟𝑖𝑚𝑒()?
+Respostas:
+Dizer que os valores foram copiados significa dizer que os valores foram copiados e atribuídos à outras variáveis na função imprime().
+Os valores do main() foram armazenados e copiados para variáveis específicas da função imprime(). O que é quase equivalente a copiar a 
+variável, com a diferença de que se tratam de variáveis distintas e diferentes, com endereços diferentes, porém, ambas com um mesmo valor 
+atribuído.É a passagem por valor.
+
+Dica:Mesmo que os nomes das variáveis sejam os mesmos (a e b), não são as mesmas variáveis na memória.
+Elas estão em áreas diferentes, e o conteúdo é apenas copiado para a função. Isso é o que chamamos de passagem
+por valor.
+
+
+Sobre a função imprime:
+Neste programa, usamos uma função chamada 𝑖𝑚𝑝𝑟𝑖𝑚𝑒(), que tem o tipo 𝑣𝑜𝑖𝑑.
+Isso significa que a função não retorna nenhum valor para quem a chamou.
+Ela simplesmente executa uma ação (neste caso, imprime na tela os valores de 𝑎 e 𝑏) e termina ali.
+Funções 𝑣𝑜𝑖𝑑 são úteis quando queremos apenas exibir algo, modificar variáveis por referência ou registrar
+alguma informação, sem a necessidade de retorno
+
+QUESTÃO 2 — Outro exemplo de passagem de parâmetro por valor
+Instruções:
+1. Clique aqui para verificar um programa com a função 𝑚𝑒𝑑𝑖𝑎() no Python Tutor. Vai abrir uma página como a
+da Figura 2 a seguir.
+2. Execute o programa passo a passo usando os botões “Next” e “Prev”.
+3. Observe com atenção o comportamento das variáveis e os valores retornados.
+Agora, reflita e responda:
+a) Em qual linha a função 𝑚𝑒𝑑𝑖𝑎() foi chamada? Quais valores foram copiados para os parâmetros 𝑎 e 𝑏 da
+função 𝑚𝑒𝑑𝑖𝑎()?
+Resposta:
+A função media() foi chamada na linha de número 16 e ainda teve seu valor atribuído a uma variável "m".	
+
+b) Compare os endereços de memória de 𝑎 e 𝑏 dentro da função 𝑚𝑎𝑖𝑛() com os endereços de 𝑎 e 𝑏 dentro
+da função 𝑚𝑒𝑑𝑖𝑎().
+→ O que você observa? Eles são os mesmos? Por quê?
+Resposta:
+Os endereços de memória de a e b dentro da função main() e a e b na função media() são distintas, assim
+como na questão 1.
+
+c) Qual valor foi retornado pela função 𝑚𝑒𝑑𝑖𝑎()?
+→ Quem recebeu esse valor na função 𝑚𝑎𝑖𝑛()?
+Resposta:
+O valor obtido como média foi o valor de 3,5. A variável "m" da main() que recebeu o valor da média, 3.5.
+
+d) Vamos aprender a editar o programa!
+• Clique em “𝑬𝒅𝒊𝒕 𝒕𝒉𝒊𝒔 𝒄𝒐𝒅𝒆” no Python Tutor.
+• Agora, modifique a linha onde a média é calculada: em vez de (𝑎 + 𝑏) / 2.0, coloque apenas (𝑎 + 𝑏) / 2.
+→ O que aconteceu com o resultado? Por quê?
+Resposta:
+O resultado deixou de ser 3.5 e passou a ser somente 3, perdeu a parte decimal. Isto ocorre porque a divisão
+passou a ser uma divisão inteira, com resultado inteiro, diferentemente de uma divisão real, com um resultado
+real. O resultado deixou de ser 3.5 e passou a ser 3. 
+
+Dica: Quando usamos apenas / 2, estamos fazendo uma divisão inteira, e o resultado pode ser truncado. Usar
+2.0 força uma divisão real (com casas decimais).
+
+QUESTÃO 3 — Explorando a passagem de parâmetros por referência
+Instruções:
+1. Clique aqui para verificar um programa com a função 𝑡𝑟𝑜𝑐𝑎() no Python Tutor. Vai abrir uma página como a
+da Figura 3 a seguir.
+2. Execute o programa passo a passo usando os botões “Next” e “Prev”.
+3. Observe com atenção o comportamento das variáveis, os valores trocados e os endereços de memória
+Agora, reflita e responda:
+a) O que aconteceu quando a função 𝑡𝑟𝑜𝑐𝑎() foi chamada?
+Resposta:
+A função troca(), ao ser chamada, usou a variável auxiliar "aux" para armazenar o valor de x e
+atribuiu o valor de y para x. Desta forma, ambas ficaram com o valor de x. Por fim, a função pegou
+o valor de x, armazenado na variável auxiliar "aux" e atribuiu a y. Desta forma, as variáveis "trocaram"
+de posição, x passando a ter o valor de y e y passando a a ter o valor de x.
+ 
+→ As variáveis 𝑥 e 𝑦 estão referenciando diretamente as variáveis 𝑎 e 𝑏 da função 𝑚𝑎𝑖𝑛().
+→ Quando 𝑎𝑢𝑥 recebe o valor de 𝑥, ele está, na prática, armazenando o valor de 𝑎.
+→ Quando 𝑥 recebe 𝑦, é como se a estivesse recebendo o valor de 𝑏.
+ Tudo isso acontece porque os parâmetros estão sendo passados por referência (&), ou seja, não há
+cópia dos valores — a função acessa diretamente as variáveis originais.
+b) Você percebeu que os valores de 𝑥 e 𝑦 estão, na verdade, ligados aos endereços de memória de 𝑎 e 𝑏?
+Resposta:
+Sim.
+
+→ Isso demonstra que 𝑥 e 𝑦 não são cópias, mas sim referências para os mesmos espaços de memória
+onde estão 𝑎 e 𝑏.
+c) Agora edite a função 𝑡𝑟𝑜𝑐𝑎() removendo os símbolos & dos parâmetros.
+→ Execute novamente no Python Tutor.
+→ O que você observa?
+Resposta:
+Eu observo que ocorreu que os valores não foram invertidos. Permaneceram na ordem original.
+
+ Os valores de 𝑎 e 𝑏 não são mais trocados, porque agora os parâmetros são passados por valor, e a função
+está trabalhando apenas com cópias.
+ Dica: A passagem por referência permite que uma função modifique diretamente as variáveis que estão
+fora dela. É ideal quando você precisa alterar valores sem retornar nada!
+
+QUESTÃO 4 — Mais um exemplo de passagem de parâmetros por referência
+Instruções:
+1. Clique aqui para verificar um programa com as funções 𝑜𝑟𝑑𝑒𝑛𝑎() e 𝑡𝑟𝑜𝑐𝑎() no Python Tutor. Vai abrir uma
+página como a da Figura 4 a seguir.
+2. Execute o programa passo a passo usando os botões “Next” e “Prev”.
+3. Observe com atenção o comportamento das variáveis, os valores trocados e os endereços de memória.
+Agora, reflita e responda:
+• Quantas funções estão definidas no programa? (Lembre-se: a função 𝑚𝑎𝑖𝑛() também é uma função.)
+Resposta:
+No programa há 3 funções definidas: 
+*"void troca(int &x, int &y)"
+*"void ordena(int &x, int &y,int &z)"
+*"int main()"
+
+• Qual função chama outra função?
+Resposta:
+*A função "void ordena(int &x, int &y, int &z)" chama a função "void troca(int &x, int &y)" 3 vezes.
+*A função "int main()" chama a função "void ordena(int &x, int &y, int &z)".
+
+• Que tipo de parâmetros as funções 𝑜𝑟𝑑𝑒𝑛𝑎() e 𝑡𝑟𝑜𝑐𝑎() utilizam: valor ou referência?
+Resposta:
+A função "ordena()" e a função "troca()" utilizam o parâmetro por referência.
+
+• Observe os valores trocados dentro da função 𝑜𝑟𝑑𝑒𝑛𝑎(). Ela modifica os valores originais? Por quê?
+Resposta:
+Sim, a função ordena modifica os valores originais pois esta função faz a passagem por referência, o que
+modifica os valores originais.
+
+• Qual é o papel da função 𝑡𝑟𝑜𝑐𝑎() dentro da função 𝑜𝑟𝑑𝑒𝑛𝑎()?
+Resposta:
+A função troca() serve para fazer a mudança de posição de x,y e z conforme for o resultado obtido pela checagem
+que é feita pela função "ordena()", pela estrutura condicional, de ifs.
+
+• Se as funções 𝑜𝑟𝑑𝑒𝑛𝑎() e 𝑡𝑟𝑜𝑐𝑎() fossem escritas com passagem por valor, o programa ainda funcionaria
+corretamente? Explique por que não seria possível manter a mesma lógica.
+Resposta:
+Não, não seria possível manter esta lógica pois, sem a passagem de valor, passando somente por valor, não passando o "endereço" da variável e alterando a variável original, a função void ordena() e void troca() perderiam todo o seu sentido, pois não alterariam nada na função int main(). A ordem de nada seria alterada no main, a função troca n
+trocaria a ordem.
+
+ Desafio opcional — Reescrevendo sem funções auxiliares
+• Reescreva o programa colocando toda a lógica de ordenação diretamente dentro da função 𝑚𝑎𝑖𝑛() (ou seja,
+sem criar as funções 𝑜𝑟𝑑𝑒𝑛𝑎() e 𝑡𝑟𝑜𝑐𝑎()).
+ Reflexão:
+• O código ficou mais claro ou mais confuso?
+Resposta:
+Mais confuso.
+
+• Ficou mais fácil ou mais difícil de manter?
+Resposta:
+Difícil.
+
+• Agora você entende por que usamos funções?
+Resposta:
+Sim.
+
+ Dica: Funções que utilizam parâmetros por referência são muito úteis em algoritmos de ordenação porque
+permitem alterar diretamente os valores originais. Isso torna o código mais limpo e eficiente em situações
+em que a modificação direta dos dados é desejada.
+
+QUESTÃO 5 — Misturando passagem por valor e por referência
+Instruções:
+• Clique aqui para verificar um programa com a função 𝑠𝑒𝑝𝑎𝑟𝑎𝑃𝑎𝑟𝑡𝑒𝐼𝑛𝑡𝑒𝑖𝑟𝑎𝐷𝑒𝑐𝑖𝑚𝑎𝑙() no Python Tutor. Vai
+abrir uma página como a da Figura 5 a seguir.
+• Execute o programa passo a passo usando os botões “Next” e “Prev”.
+• Observe como o uso combinado de passagem por valor e por referência afeta as variáveis.
+Agora, reflita e responda:
+a) Qual foi o valor final exibido para 𝑣𝑎𝑙𝑜𝑟, 𝑖𝑛𝑡𝑒𝑖𝑟𝑎 e 𝑑𝑒𝑐𝑖𝑚𝑎𝑙?
+Resposta:
+Os valores finais foram:
+valor =12.75;
+inteira=12;
+decimal =0.75;
+
+b) A função 𝑠𝑒𝑝𝑎𝑟𝑎𝑃𝑎𝑟𝑡𝑒𝐼𝑛𝑡𝑒𝑖𝑟𝑎𝐷𝑒𝑐𝑖𝑚𝑎𝑙() modificou o valor da variável valor?
+→ Por que isso não aconteceu?
+Resposta:
+Não. Isto não aconteceu porque a função separaParteInteiraDecimal() faz a passagem de parâmetros,
+de tal modo em que não se altera o valor da variável valor.
+
+c) E quanto às variáveis 𝑖𝑛𝑡𝑒𝑖𝑟𝑎 e 𝑑𝑒𝑐𝑖𝑚𝑎𝑙? Por que elas foram modificadas corretamente?
+Resposta:
+Isto ocorre porque na função void separaParteDecimal(float numero, int &parteInteira, float &parteDecimal),
+os parâmetros parteInteira (inteira) e parteDecimal (decimal) foram passadas por referência, de tal forma
+em que elas foram modificadas corretamente.
+ 
+
+d) O que esse exemplo demonstra sobre a diferença entre passagem por valor e passagem por referência
+quando usadas juntas na mesma função?
+Resposta:
+Demonstra e deixa mais clara a diferença entre os dois tipos de passagem. O parâmetro que foi passado por valor não teve modificações em main(). Já, em contraponto, os dois parâmetros passados por referência explicitaram a modificação que ocorreu em main().
+
+e) Você sabia que uma função só pode retornar um valor por vez usando 𝑟𝑒𝑡𝑢𝑟𝑛? Neste exemplo, usamos
+passagem por referência como estratégia para "retornar" mais de um resultado. Você consegue imaginar
+outras situações em que isso seria útil?
+Resposta:
+Não. Em qualquer situação em que seja interessante mais de um resultado ser retornado por uma função específica 
+
+ Dica: Quando usamos passagem por valor, as alterações ocorrem em uma cópia. Já na passagem por
+referência, a variável original é diretamente modificada. Essa técnica também pode ser usada quando queremos que
+uma função forneça mais de um resultado.
+Além disso, é importante lembrar que quando o comando 𝑟𝑒𝑡𝑢𝑟𝑛 é executado, a função termina imediatamente — por
+isso, só é possível retornar um único valor diretamente por 𝑟𝑒𝑡𝑢𝑟𝑛. Se quisermos "retornar" mais de um valor,
+usamos variáveis por referência. Quando usamos passagem por valor, as alterações ocorrem em uma cópia. Já na
+passagem por referência, a variável original é diretamente modificada. Você pode usar os dois tipos na mesma
+função, dependendo do que deseja alterar ou preservar.
